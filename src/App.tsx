@@ -26,7 +26,7 @@ function App() {
 			const formData = new FormData(event.currentTarget);
 			
 			const { data, errors } = await
-			amplifyClient.queries.askBedrock({
+		amplifyClient.queries.askBedrock({
 				ingredients: [formData.get("ingredients")?.toString() || ""],
 			});
 			
@@ -57,34 +57,35 @@ function App() {
 						demand...
 					</p>
 				</div>
-		<form onSubmit={onSubmit} className="form-container">
-			<div className="search-container">
-				<input
-					type="text"
-					className="wide-input"
-					id="ingredients"
-					name="ingredients"
-					placeholder="Ingredient1, Ingredient2, Ingredient3,...etc"
-				/>
-				<button type="submit" className="search-button">
-					Generate
-				</button>
-			</div>
-		</form>
-		<div className="result-container">
-			{loading ? (
-				<div className="loader-container">
-					<p>Loading...</p>
-					<Loader size="large" />
-					<Placeholder size="large" />
-					<Placeholder size="large" />
-					<Placeholder size="large" />
+				<form onSubmit={onSubmit} className="form-container">
+					<div className="search-container">
+						<input
+							type="text"
+							className="wide-input"
+							id="ingredients"
+							name="ingredients"
+							placeholder="Ingredient1, Ingredient2, Ingredient3,...etc"
+						/>
+						<button type="submit" className="search-button">
+							Generate
+						</button>
+					</div>
+				</form>
+				<div className="result-container">
+					{loading ? (
+					<div className="loader-container">
+						<p>Loading...</p>
+						<Loader size="large" />
+						<Placeholder size="large" />
+						<Placeholder size="large" />
+						<Placeholder size="large" />
+					</div>
+					) : (
+						result && <p className="result">{result}</p>
+					)}
 				</div>
-			) : (
-				result && <p className="result">{result}</p>
-			)}
-		</div>
-	</div>
-	);
-}
-export default App;
+			</div>
+		);
+	}
+	
+	export default App;
