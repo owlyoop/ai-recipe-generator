@@ -31,7 +31,7 @@ function App() {
 			});
 			
 			if (!errors) {
-				setResult(data?.body || "No data returned");
+				setResult(data?.body || "No data returned!");
 			} else {
 				console.log(errors);
 			}
