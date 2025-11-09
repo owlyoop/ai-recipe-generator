@@ -1,4 +1,4 @@
-declare module "../amplify_outputs.json" {
+declare module "./amplify_outputs.json" {
   const value: any;
   export default value;
 }
